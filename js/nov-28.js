@@ -13,10 +13,10 @@ let videoFrame;
 let handPose;
 // let hands = [];
 
-function preload() {
-//   handPose = ml5.handPose({ flipped: true });
-  RokkittMedium = loadFont('../assets/Rokkitt-Medium.ttf');
-}
+// function preload() {
+// //   handPose = ml5.handPose({ flipped: true });
+//   RokkittMedium = loadFont('../assets/Rokkitt-Medium.ttf');
+// }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -31,7 +31,7 @@ function setup() {
     // input.style('background', 'black');
     uploadButton.style('color', 'black');  
     uploadButton.style('font-size', '10px');
-    uploadButton.style('font-family', 'RokkittMedium, sans-serif');
+    // uploadButton.style('font-family', 'RokkittMedium, sans-serif');
     uploadButton.style('cursor', 'pointer');
 
     uploadButton.mousePressed(() => {
@@ -207,7 +207,7 @@ function titleText() {
     fill('black');
     rect(0, windowWidth, windowWidth, windowHeight/1.25);
     textAlign(LEFT, CENTER);
-    textFont(RokkittMedium);
+    // textFont(RokkittMedium);
     fill('white');
     textSize(30);
     // 'In Search of HEX'
