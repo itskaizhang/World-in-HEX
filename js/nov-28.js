@@ -13,10 +13,10 @@ let videoFrame;
 let handPose;
 // let hands = [];
 
-// function preload() {
-// //   handPose = ml5.handPose({ flipped: true });
-//   RokkittMedium = loadFont('../assets/Rokkitt-Medium.ttf');
-// }
+function preload() {
+//   handPose = ml5.handPose({ flipped: true });
+  RokkittMedium = loadFont('assets/Rokkitt-Medium.ttf');
+}
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -27,11 +27,11 @@ function setup() {
     input.hide();
 
     let uploadButton = createButton('Upload Image');
-    uploadButton.position(windowWidth * 1/30, windowHeight - 35);
+    uploadButton.position(windowWidth * 1/30, windowHeight - 40);
     // input.style('background', 'black');
     uploadButton.style('color', 'black');  
     uploadButton.style('font-size', '10px');
-    // uploadButton.style('font-family', 'RokkittMedium, sans-serif');
+    uploadButton.style('font-family', 'RokkittMedium, sans-serif');
     uploadButton.style('cursor', 'pointer');
 
     uploadButton.mousePressed(() => {
@@ -207,13 +207,13 @@ function titleText() {
     fill('black');
     rect(0, windowWidth, windowWidth, windowHeight/1.25);
     textAlign(LEFT, CENTER);
-    // textFont(RokkittMedium);
+    textFont(RokkittMedium);
     fill('white');
     textSize(30);
     // 'In Search of HEX'
-    text('Our World in HEX', windowWidth * 1/30, windowHeight - 80);
+    text('World in HEX', windowWidth * 1/30, windowHeight - 90);
     textSize(10);
-    text('A COLOR EXPLORATION OF NEW HAVEN', windowWidth * 1/30, windowHeight - 50)
+    text('A COLOR EXPLORATION OF NEW HAVEN', windowWidth * 1/30, windowHeight - 60)
 }
 
 // Getting the average color function 
@@ -256,17 +256,17 @@ function hexCodePalettes() {
     // Collecting colors
     let sliceW = windowWidth / 4;
 
-    // let col0 = averageColor(0, 0, sliceW, windowHeight);
-    // let col1 = averageColor(sliceW, 0, sliceW, windowHeight);
-    // let col2 = averageColor(sliceW * 2, 0, sliceW, windowHeight);
-    // let col3 = averageColor(sliceW * 3, 0, sliceW, windowHeight);
+    let c0 = averageColor(0, 0, sliceW, windowHeight);
+    let c1 = averageColor(sliceW, 0, sliceW, windowHeight);
+    let c2 = averageColor(sliceW * 2, 0, sliceW, windowHeight);
+    let c3 = averageColor(sliceW * 3, 0, sliceW, windowHeight);
 
     // HEX blocks
     // 1st HEX
     rectMode(CORNERS); 
     // x1, y1 = top-left corner
     // x2, y2 = bottom-right corner
-    fill('black');
+    fill(c0);
     noStroke();
     rect(xRect - rectWidth, 
         yRect - rectHeight, 
@@ -278,7 +278,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill('black');
+    fill(c1);
     noStroke();
     rect(xRect - rectWidth - 60, 
         yRect - rectHeight, 
@@ -290,7 +290,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill('black');
+    fill(c2);
     noStroke();
     rect(xRect - rectWidth - 120, 
         yRect - rectHeight, 
@@ -302,7 +302,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill('black');
+    fill(c3);
     noStroke();
     rect(xRect - rectWidth - 180, 
         yRect - rectHeight, 
