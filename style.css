@@ -1,0 +1,19 @@
+canvas {
+    display: block;
+}
+  
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+    height: 100vh;            /* full viewport height */
+    background: #111;
+ }
+  
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  
