@@ -256,17 +256,17 @@ function hexCodePalettes() {
     // Collecting colors
     let sliceW = windowWidth / 4;
 
-    let col0 = averageColor(0, 0, sliceW, windowHeight);
-    let col1 = averageColor(sliceW, 0, sliceW, windowHeight);
-    let col2 = averageColor(sliceW * 2, 0, sliceW, windowHeight);
-    let col3 = averageColor(sliceW * 3, 0, sliceW, windowHeight);
+    // let col0 = averageColor(0, 0, sliceW, windowHeight);
+    // let col1 = averageColor(sliceW, 0, sliceW, windowHeight);
+    // let col2 = averageColor(sliceW * 2, 0, sliceW, windowHeight);
+    // let col3 = averageColor(sliceW * 3, 0, sliceW, windowHeight);
 
     // HEX blocks
     // 1st HEX
     rectMode(CORNERS); 
     // x1, y1 = top-left corner
     // x2, y2 = bottom-right corner
-    fill(col0);
+    fill('black');
     noStroke();
     rect(xRect - rectWidth, 
         yRect - rectHeight, 
@@ -278,7 +278,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill(col1);
+    fill('black');
     noStroke();
     rect(xRect - rectWidth - 60, 
         yRect - rectHeight, 
@@ -290,7 +290,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill(col2);
+    fill('black');
     noStroke();
     rect(xRect - rectWidth - 120, 
         yRect - rectHeight, 
@@ -302,7 +302,7 @@ function hexCodePalettes() {
     yRect = windowHeight - 40;
 
     rectMode(CORNERS); 
-    fill(col3);
+    fill('black');
     noStroke();
     rect(xRect - rectWidth - 180, 
         yRect - rectHeight, 
