@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Participant Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- <script src="../js/libraries/socket.min.js"></script>
+    <script src="../js/libraries/p5.min.js"></script>
+    <script src="../js/libraries/p5.dom.min.js"></script>
+    <script src="../js/libraries/p5.sound.min.js"></script> -->
+</head>
+<style>
+    body {
+        background-color: black;
+        font-family: 'Rokkitt';
+        font-size: 40px;
+        color: white;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    button {
+        padding: 20px;
+        font-size: 30px;
+        font-family: 'Rokkitt';
+        font-weight: 600;
+        border-radius: 5px;
+        border-color: black;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: blanchedalmond
+    }
+
+</style>
+<body>
+    <div class="title"> 
+        <form action="/upload" method="POST">
+            <input type="file" name="image" accept="image/*">
+            <button id="upload" type="submit">Upload image</button> 
+        </form>
+    </div>
+</body>
+<script src="participant.js"></script>
+</html>
