@@ -60,15 +60,23 @@ function setup() {
 
     // Detect hands
     handPose.detectStart(video, gotHands);
+
+    // Set up socket
+    socket = io('http://localhost:4000'); 
+
+    // Receives image from server
+    socket.on('upload-image', (base64) => {
+        handleServerImage(base64);
+    });
 }
 
-
-// socket.on('new-image', (imgData) => {
-//     uploadedImg = createImg(imgData, '', '', () => {
-//       uploadedImg.hide();
-//       imgLoaded = true;
-//     });
-//   });
+function handleServerImage(base64) {
+    loadImage(base64, (loadedImg) => {
+        img = loadedImg;   // p5.Image
+        imgLoaded = true;
+        img.resize(windowWidth, 0);
+    });
+}
 
 
 function draw() {
@@ -134,7 +142,7 @@ function draw() {
         img.resize(64*3, 48*3);
         img.loadPixels();
 
-        for (let i=0; i<5; i++) {
+        for (let i=0; i<3; i++) {
             // sortPixels(img);  // Change to i < 75000
             sortColumn(floor(random(img.width)));
         }
@@ -270,7 +278,7 @@ function imgCreated() {
       img.resize(windowWidth, 0);
     }
     imgLoaded = true;
-    palette = getDominantColors(img);
+    // palette = getDominantColors(img);
 }
 
 
@@ -318,8 +326,6 @@ function sortColumn(x) {
     }
 }
 
-
-
 // Poster organizational layout
 function titleText() {
     rectMode(CORNERS);
@@ -336,42 +342,6 @@ function titleText() {
     text('POINT TO A PIXEL. TAP TO CAPTURE THE HEX.', windowWidth * 1/30, windowHeight - 60)
 }
 
-// Getting the average color function 
-// Might instead get the most frequent color pixel
-function getDominantColors(img, bins = 4, howMany = 4) {
-    if (imgLoaded) {
-        img.loadPixels();
-    };
-
-    let hist = {};
-
-    for (let i = 0; i < img.pixels.length; i += 4) {
-        let r = floor(img.pixels[i]     / (256 / bins));
-        let g = floor(img.pixels[i + 1] / (256 / bins));
-        let b = floor(img.pixels[i + 2] / (256 / bins));
-
-        let key = `${r},${g},${b}`;
-        hist[key] = (hist[key] || 0) + 1;
-    }
-
-    // Sort by most frequent
-    let sorted = Object.entries(hist).sort((a, b) => b[1] - a[1]);
-
-    // Convert first N bins back to real RGB values
-    let palette = sorted.slice(0, howMany).map(([key]) => {
-        let [br, bg, bb] = key.split(",").map(Number);
-        return color(
-            (br + 0.5) * (256 / bins),
-            (bg + 0.5) * (256 / bins),
-            (bb + 0.5) * (256 / bins)
-        );
-    });
-
-    return palette;
-}
-
-
-
 function hexCodePalettes() {
     let rectWidth = 50;
     let rectHeight = 50;
@@ -380,9 +350,8 @@ function hexCodePalettes() {
     let yBase = windowHeight - 40;
 
     // Get 4 dominant colors from histogram binning
-    // let palette = getDominantColors(img, 6, 4);
 
-    // Draw each palette block
+    // Draw each palette block -- palettes is a global var
     for (let i = 0; i < palettes.length; i++) {
         fill(palettes[i]);
         noStroke();

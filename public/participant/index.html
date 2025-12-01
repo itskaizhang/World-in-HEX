@@ -1,12 +1,14 @@
+<!-- Participant to upload image files -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Participant Interface</title>
+    <title>Participant Image Upload</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/heic2any"></script>
     <script src="/socket.io/socket.io.js"></script>
-
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
     <!-- <script src="../js/libraries/socket.min.js"></script>
     <script src="../js/libraries/p5.min.js"></script>
     <script src="../js/libraries/p5.dom.min.js"></script>
@@ -14,12 +16,14 @@
 </head>
 <style>
     body {
-        background-color: black;
-        font-family: 'Rokkitt';
-        font-size: 40px;
-        color: white;
+        margin: 0;
+        display: flex;
+        justify-content: center;  /* horizontal center */
+        align-items: center;      /* vertical center */
+        height: 100vh;            /* full viewport height */
+        background: #111;
     }
-
+    /* 
     .title {
         display: flex;
         justify-content: center;
@@ -40,17 +44,11 @@
 
     button:hover {
         background-color: blanchedalmond
-    }
-
+    } */
 </style>
 <body>
-    <div class="title"> 
-        <form action="/upload" method="POST">
-            <input id="fileInput" type="file" name="image" accept="image/*" style="display:none;">
-            <button id="uploadBtn" type="button">Upload Image</button>
-        </form>
-    </div>
-    <div id="preview-body"></div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.min.js"></script>
+<!-- Need a reference to the socket sever library in the client -->
 <script src="participant.js"></script>
 </html>
