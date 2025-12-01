@@ -22,7 +22,7 @@ app.use(express.static('public'));
 const io = new Server(server, {
   allowEIO3: true, // Allows older clients (Socket.io 2.x) to connect - useful for Node-RED
   cors: {
-    origin: "*",        // Allow connections from any website (restrict in production!)
+    origin: "*",   // "*" Allow connections from any website (restrict in production!)
     methods: ["GET", "POST"]
   }
 });
@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
 
     // Client (participant.js) sent a message called 'upload-image'
     socket.on('upload-image', (imageData) => {
-        console.log('Received image: ', imageData);
+        // console.log('Received image: ', imageData);
         socket.broadcast.emit('upload-image', imageData); // Server broadcasts to all clients (specifically to main.js)
     })
 
@@ -60,9 +60,6 @@ io.on("connection", (socket) => {
     })
 });
   
-
-
-
 
 //   // Handle client disconnection
 //   client.on('disconnect', () => {

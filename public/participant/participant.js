@@ -9,7 +9,9 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background('black');
 
-    socket = io('https://world-in-hex.onrender.com'); 
+    socket = io('https://world-in-hex-s4p.onrender.com'); 
+    // socket = io('http://localhost:4000'); 
+
 
     // Client receiving the message from the server
     // socket.on('mouse', newDrawing);
@@ -131,36 +133,3 @@ function handleFile(file) {
 function draw() {
   
 }
-
-// socket.on("newImage", (imgDataURL) => {
-//     userImages.push(imgDataURL);
-//     console.log("Received new image:", imgDataURL);
-
-//     // Preview 
-//     let img = new Image();
-//     img.src = imgDataURL;
-//     document.getElementById("preview-body").appendChild(img);
-// });
-
-
-// document.getElementById('uploadBtn').addEventListener("click", () => {
-//     document.getElementById("fileInput").click(); // opens file picker
-// });
-
-// document.getElementById('fileInput').addEventListener("change", (e) => {
-//     const file = e.target.files[0];
-//     if (!file) return;
-
-//     if (!file.type.startsWith("image/")) {
-//         alert("Please select an image.");
-//         return;
-//     }
-
-//     const reader = new FileReader();
-//     reader.onload = function(event) {
-//         const base64 = event.target.result; // base64 string
-//         socket.emit("new-image", base64);
-//         console.log("Sent base64 image");
-//     };
-//     reader.readAsDataURL(file);
-// });

@@ -62,7 +62,9 @@ function setup() {
     handPose.detectStart(video, gotHands);
 
     // Set up socket
-    socket = io('https://world-in-hex.onrender.com'); 
+    socket = io('https://world-in-hex-s4p.onrender.com'); 
+    // socket = io('http://localhost:4000'); 
+
 
     // Receives image from server
     socket.on('upload-image', (base64) => {
@@ -115,18 +117,6 @@ function draw() {
         }
     }
 
-    // // Copy current video frame into p5.Image
-    // videoFrame.copy(video, 0, 0, video.width - 50, video.height - 50, 0, 0, video.width - 50, video.height -50)
-    // image(video, 0, 0, width, height);
-    
-    // // For webcam video
-    // videoFrame.loadPixels();
-    // for (let i=0; i<50000; i++) {
-    //     sortPixels(videoFrame); 
-    // }
-    // videoFrame.updatePixels();
-    // image(videoFrame, 0, 0, width, height);
-    
     // For uploaded images
     if (imgLoaded) {
         // Stop webcam stream -- maybe have webcam on, but overlay image on top
@@ -182,16 +172,16 @@ function draw() {
         text(hexColor, windowWidth * 1/30, 30);
         
         strokeWeight(1);
-        stroke('black');
-        square(scaledIndexX, scaledIndexY - 20, 20);
+        stroke('#FFCF00');
+        square(scaledIndexX - 5, scaledIndexY - 20, 30);
    
         let d = dist(scaledIndexX, scaledIndexY, scaledThumbX, scaledThumbY); 
         if (d < 25) {
             strokeWeight(1);
             fill(c);
-            stroke('black');
-            square(scaledIndexX, scaledIndexY - 10, 40);
-            square(scaledThumbX, scaledThumbY - 20, 20);
+            stroke('#FFCF00');
+            square(scaledIndexX - 5, scaledIndexY - 10, 50);
+            square(scaledThumbX, scaledThumbY - 20, 30);
             let now = millis();
             if (now - lastAddedTime > cooldown) {
                 let x = constrain(scaledIndexX, 0, width - 1);
@@ -210,7 +200,7 @@ function draw() {
         }
     }
 
-
+    stroke('black');
     titleText();
     hexCodePalettes();
 
