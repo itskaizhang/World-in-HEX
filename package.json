@@ -1,0 +1,20 @@
+{
+    "name": "socket-template",
+    "version": "2.0.0",
+    "description": "Modern Socket.io + p5.js template",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "node --watch server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.19.2",
+      "socket.io": "^4.7.5"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }

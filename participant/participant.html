@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
 
     <!-- <script src="../js/libraries/socket.min.js"></script>
     <script src="../js/libraries/p5.min.js"></script>
@@ -45,10 +46,11 @@
 <body>
     <div class="title"> 
         <form action="/upload" method="POST">
-            <input type="file" name="image" accept="image/*">
-            <button id="upload" type="submit">Upload image</button> 
+            <input id="fileInput" type="file" name="image" accept="image/*" style="display:none;">
+            <button id="uploadBtn" type="button">Upload Image</button>
         </form>
     </div>
+    <div id="preview-body"></div>
 </body>
 <script src="participant.js"></script>
 </html>
