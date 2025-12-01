@@ -9,7 +9,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background('black');
 
-    socket = io('http://localhost:4000'); 
+    socket = io('https://world-in-hex.onrender.com'); 
 
     // Client receiving the message from the server
     // socket.on('mouse', newDrawing);

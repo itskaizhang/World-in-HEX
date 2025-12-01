@@ -62,7 +62,7 @@ function setup() {
     handPose.detectStart(video, gotHands);
 
     // Set up socket
-    socket = io('http://localhost:4000'); 
+    socket = io('https://world-in-hex.onrender.com'); 
 
     // Receives image from server
     socket.on('upload-image', (base64) => {
